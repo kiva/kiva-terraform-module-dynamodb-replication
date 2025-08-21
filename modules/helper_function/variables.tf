@@ -57,3 +57,8 @@ variable "event_source_mapping_uuid" {
   type        = string
   description = "Event source mapping uuid"
 }
+
+variable "aws_region"
+  type        = string
+  default     = "us-west-2"
+}
