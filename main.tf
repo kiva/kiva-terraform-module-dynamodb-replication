@@ -2,7 +2,7 @@ locals {
   initial_workflow_status = var.enabled ? "enabled" : "disabled"
 }
 
-/*
+
 resource "aws_ssm_parameter" "workflow_status" {
   name  = "/dynamodb_replication/${var.target_account}/${var.target_region}/${var.target_dynamodb_table_name}/workflow_status"
   type  = "String"
@@ -12,7 +12,7 @@ resource "aws_ssm_parameter" "workflow_status" {
     ignore_changes = [value]
   }
 }
-*/
+
 
 data "aws_ssm_parameter" "workflow_status" {
   name = "/dynamodb_replication/${var.target_account}/${var.target_region}/${var.target_dynamodb_table_name}/workflow_status"
