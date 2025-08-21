@@ -3,6 +3,7 @@ module "helper_lambda" {
   version = "1.35.8"
 
   description                        = "SSM helper for dynamoDB replication state machine"
+  aws_region                         = var.aws_region
   function_name                      = "helper-${var.target_account}-${var.target_region}-${var.target_dynamodb_table_name}"
   disable_label_function_name_prefix = true
   lambda_code_dir                    = "${path.module}/function"

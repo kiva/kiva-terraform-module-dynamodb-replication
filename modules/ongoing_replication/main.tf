@@ -16,6 +16,7 @@ module "replication-lambda" {
   namespace                          = var.namespace
   runtime                            = "python3.8"
   timeout                            = "900"
+  aws_region                         = var.aws_region
   environment_variables = {
     TARGET_AWS_ACCOUNT_NUMBER = var.target_account
     TARGET_DYNAMODB_NAME      = var.target_dynamodb_table_name
