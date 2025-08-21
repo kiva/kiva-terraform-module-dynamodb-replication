@@ -85,10 +85,10 @@ data "aws_ssm_parameter" "event_source_mapping_uuid" {
   name = "/dynamodb_replication/${var.target_account}/${var.target_region}/${var.target_dynamodb_table_name}/event_source_mapping_uuid"
 }
 
-/*
+
 
 resource "aws_ssm_parameter" "event_source_mapping_uuid" {
   name  = "/dynamodb_replication/${var.target_account}/${var.target_region}/${var.target_dynamodb_table_name}/event_source_mapping_uuid"
   type  = "String"
   value = aws_lambda_event_source_mapping.this.uuid
-}*/
+}
