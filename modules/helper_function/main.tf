@@ -30,7 +30,7 @@ data "aws_iam_policy_document" "lambda_policy" {
       "ssm:Put*"
     ]
     resources = [
-      var.ssm_param_name_source_mapping_uuid,
+      var.ssm_param_name_source_mapping_arn,
       var.ssm_workflow_status_parameter_arn
     ]
   }

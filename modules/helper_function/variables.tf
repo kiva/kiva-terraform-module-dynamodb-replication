@@ -48,6 +48,11 @@ variable "ssm_param_name_source_mapping_uuid" {
   description = "Name of the SSM parameter holding source mapping uuid"
 }
 
+variable "ssm_param_name_source_mapping_arn" {
+  type        = string
+  description = "ARN of the SSM parameter holding source mapping uuid"
+}
+
 variable "ssm_param_name_source_workflow_status" {
   type        = string
   description = "Name of the SSM parameter holding the workflow status"
