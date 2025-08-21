@@ -31,7 +31,7 @@ data "aws_iam_policy_document" "lambda_policy" {
     ]
     resources = [
       var.ssm_param_name_source_mapping_uuid,
-      var.ssm_param_name_source_workflow_status
+      var.ssm_workflow_status_parameter_arn
     ]
   }
   statement {
