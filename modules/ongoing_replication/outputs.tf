@@ -7,7 +7,7 @@ output "lambda_arn" {
 }
 
 output "ssm_event_source_mapping_uuid" {
-  value = data.aws_ssm_parameter.event_source_mapping_uuid.name
+  value = aws_ssm_parameter.event_source_mapping_uuid.name 
 }
 
 output "event_source_mapping_uuid" {
