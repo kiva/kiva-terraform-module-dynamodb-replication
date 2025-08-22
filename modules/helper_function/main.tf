@@ -1,10 +1,15 @@
+locals {
+  ideal_function_name = "mg-${var.target_dynamodb_table_name}"
+  function_name       = length(local.ideal_function_name) > 64 ? substr(local.ideal_function_name, 0, 63) : local.ideal_function_name
+}
+
 module "helper_lambda" {
   source  = "Adaptavist/aws-lambda/module"
   version = "1.35.8"
 
   description                        = "SSM helper for dynamoDB replication state machine"
   aws_region                         = var.aws_region
-  function_name                      = "helper-${var.target_account}-${var.target_region}-${var.target_dynamodb_table_name}"
+  function_name                      = local.function_name 
   disable_label_function_name_prefix = true
   lambda_code_dir                    = "${path.module}/function"
   handler                            = "Helper.lambda_handler"
