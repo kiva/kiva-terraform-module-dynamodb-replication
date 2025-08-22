@@ -1,5 +1,5 @@
 locals {
-  ideal_function_name = "dynamodb-replication-${var.target_account}-${var.target_region}-${var.target_dynamodb_table_name}"
+  ideal_function_name = "dynamodb-repl_${var.target_account}_${var.target_dynamodb_table_name}"
   function_name       = length(local.ideal_function_name) > 64 ? substr(local.ideal_function_name, 0, 63) : local.ideal_function_name
 }
 
