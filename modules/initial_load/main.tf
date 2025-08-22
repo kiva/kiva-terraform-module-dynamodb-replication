@@ -15,7 +15,7 @@ module "service" {
   destination_role_arn   = var.destination_role_arn
   destination_table_name = var.destination_table_name
   ecr_repo_name          = "cloud-dynamodb-copy"
-  ecr_repo_account       = "074742550667"
+  ecr_repo_account       = "111644114322"
   ecr_repo_region        = "us-west-2"
   memory                 = var.memory
   source_table_name      = var.source_table_name
