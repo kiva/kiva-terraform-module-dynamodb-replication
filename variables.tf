@@ -63,3 +63,8 @@ variable "initial_load_sg" {
   type        = string
   description = "Security group for the initial load ECS task"
 }
+
+variable "ecr_repo_account" {
+  type        = string
+  description = "aws account number to use for the ecr repo"
+}
