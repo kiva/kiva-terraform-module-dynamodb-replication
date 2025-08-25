@@ -42,3 +42,8 @@ variable "tags" {
   type        = map(string)
   description = "A map of tags to assign to the resource."
 }
+
+variable "ecr_repo_account" {
+  type        = string
+  description = "aws account number to use for the ecr repo"
+}

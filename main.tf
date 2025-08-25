@@ -31,6 +31,7 @@ module "initial_load" {
   source_table_name      = var.source_table_name
   stage                  = var.stage
   stage_type             = var.stage_type
+  ecr_repo_account       = "111644114322"
 }
 
 module "ongoing_replication" {
