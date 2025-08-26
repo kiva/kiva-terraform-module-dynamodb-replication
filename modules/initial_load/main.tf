@@ -19,6 +19,7 @@ module "service" {
   ecr_repo_region        = "us-west-2"
   memory                 = var.memory
   source_table_name      = var.source_table_name
+  target_account         = var.target_account
 }
 
 
