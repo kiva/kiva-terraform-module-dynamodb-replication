@@ -32,6 +32,7 @@ module "initial_load" {
   stage                  = var.stage
   stage_type             = var.stage_type
   ecr_repo_account       = var.ecr_repo_account
+  target_account         = var.target_account
 }
 
 module "ongoing_replication" {
