@@ -88,7 +88,8 @@ data "aws_iam_policy_document" "execution" {
       "dynamodb:DescribeTable",
       "dynamodb:GetItem",
       "dynamodb:Scan",
-      "dynamodb:Query"
+      "dynamodb:Query",
+      "dynamodb:DescribeContinuousBackups"
     ]
     resources = [
       "arn:aws:dynamodb:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:table/${var.source_table_name}"
