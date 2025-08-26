@@ -20,6 +20,7 @@ module "service" {
   memory                 = var.memory
   source_table_name      = var.source_table_name
   target_account         = var.target_account
+  target_s3_bucket_name  = var.target_s3_bucket_name
 }
 
 
