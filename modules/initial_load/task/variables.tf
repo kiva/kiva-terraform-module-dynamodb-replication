@@ -64,3 +64,8 @@ variable "target_table_write_capacity" {
   description = "Write capacity of the target table"
   default     = 5
 }
+
+variable "target_account" {
+  type        = string
+  description = "aws account where destination table is located"
+}

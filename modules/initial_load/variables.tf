@@ -47,3 +47,8 @@ variable "ecr_repo_account" {
   type        = string
   description = "aws account number to use for the ecr repo"
 }
+
+variable "target_account" {
+  type        = string
+  description = "aws account where destination table is located"
+}
