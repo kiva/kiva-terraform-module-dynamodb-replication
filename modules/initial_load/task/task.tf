@@ -47,15 +47,15 @@ data "aws_iam_policy_document" "this" {
 
 
 module "dynamodb-copy-container-definition" {
-  source           = "cloudposse/ecs-container-definition/aws"
-  version          = "0.45.2"
-  container_image  = "${local.ecr_url}:prod"
-  container_name   = "dynamodb-copy"
-  container_memory = var.memory
-  container_cpu    = var.cpuUnits
-  command          = [ "python",  "./dynamodb-initial-load-and-cdc-setup.py", "--target-region=${data.aws_region.this.name}", "--source-table-name=${var.source_table_name}", "--target-account-id=${var.target_account}", "--target-table-read-capacity=${var.target_table_read_capacity}", "--target-table-write-capacity=${var.target_table_write_capacity}", "--target-role-name=dynamodb_writer" ]
+  source            = "cloudposse/ecs-container-definition/aws"
+  version           = "0.45.2"
+  container_image   = "${local.ecr_url}:prod"
+  container_name    = "dynamodb-copy"
+  container_memory  = var.memory
+  container_cpu     = var.cpuUnits
+  command           = ["python", "./dynamodb-initial-load-and-cdc-setup.py", "--target-region=${data.aws_region.this.name}", "--source-table-name=${var.source_table_name}", "--target-account-id=${var.target_account}", "--target-table-read-capacity=${var.target_table_read_capacity}", "--target-table-write-capacity=${var.target_table_write_capacity}", "--target-role-name=dynamodb_writer"]
   working_directory = "/app"
-  essential        = true
+  essential         = true
   environment = [
     {
       name  = "SOURCE_TABLE_NAME"
