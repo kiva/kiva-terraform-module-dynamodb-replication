@@ -8,8 +8,8 @@ data "aws_region" "this" {}
 
 resource "aws_ecs_cluster" "this" {
   #checkov:skip=CKV_AWS_65:This cluster is short lived
-  name               = "dynamodb-copy-${var.source_table_name}"
-  tags               = var.tags
+  name = "dynamodb-copy-${var.source_table_name}"
+  tags = var.tags
 }
 
 
