@@ -53,6 +53,7 @@ module "dynamodb-copy-container-definition" {
   container_name   = "dynamodb-copy"
   container_memory = var.memory
   container_cpu    = var.cpuUnits
+  command          = [ "python", "./dynamodb-initial-load-and-cdc-setup.py", "--target-region ${data.aws_region.this.name} --source-table-name ${var.source_table_name} --target-account-id  ${var.target_acount} --target-table-read-capacity ${var.target_table_read_capacity} --target-table-write-capacity ${var.target_table_write_capacity} --target-role-name dynamodb_writer" ]
   essential        = true
   environment = [
     {

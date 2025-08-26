@@ -52,3 +52,15 @@ variable "ecr_repo_region" {
   type        = string
   description = "AWS Account region where ECR repository is located"
 }
+
+variable "var.target_table_read_capacity" {
+  type = number
+  description = "Read capacity of the target table"
+  default     = 5
+}
+
+variable "var.target_table_write_capacity" {
+  type = number
+  description = "Write capacity of the target table"
+  default     = 5
+} 
