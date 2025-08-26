@@ -69,3 +69,8 @@ variable "target_account" {
   type        = string
   description = "aws account where destination table is located"
 }
+
+variable "target_s3_bucket_name" {
+  type        = string
+  description = "target bucket name for the s3 export"
+}

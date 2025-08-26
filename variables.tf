@@ -18,6 +18,11 @@ variable "target_role_arn" {
   description = "Target IAM Role name to be assumed by Lambda function and a Glue job"
 }
 
+variable "target_s3_bucket_name" {
+  type        = string
+  description = "target s3 bucket name for s3 export"
+}
+
 variable "source_table_stream_arn" {
   type        = string
   description = "Source Dynamo DB table stream ARN"

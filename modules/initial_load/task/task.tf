@@ -30,10 +30,13 @@ data "aws_iam_policy_document" "this" {
       "dynamodb:GetItem",
       "dynamodb:Scan",
       "dynamodb:Query",
-      "dynamodb:DescribeContinuousBackups"
+      "dynamodb:DescribeContinuousBackups",
+      "dynamodb:ExportTableToPointInTime",
+      "dynamodb:DescribeExport"
     ]
     resources = [
-      "arn:aws:dynamodb:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:table/${var.source_table_name}"
+      "arn:aws:dynamodb:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:table/${var.source_table_name}",
+      "arn:aws:dynamodb:${data.aws_region.this.name}:${data.aws_caller_identity.this.account_id}:table/${var.source_table_name}/*"
     ]
   }
   statement {
@@ -54,7 +57,7 @@ module "dynamodb-copy-container-definition" {
   container_name    = "dynamodb-copy"
   container_memory  = var.memory
   container_cpu     = var.cpuUnits
-  command           = ["python", "./dynamodb-initial-load-and-cdc-setup.py", "--target-region=${data.aws_region.this.name}", "--source-table-name=${var.source_table_name}", "--target-account-id=${var.target_account}", "--target-table-read-capacity=${var.target_table_read_capacity}", "--target-table-write-capacity=${var.target_table_write_capacity}", "--target-role-name=dynamodb_writer"]
+  command           = ["python", "./dynamodb-initial-load-and-cdc-setup.py", "--target-region=${data.aws_region.this.name}", "--source-table-name=${var.source_table_name}", "--target-account-id=${var.target_account}", "--target-table-read-capacity=${var.target_table_read_capacity}", "--target-table-write-capacity=${var.target_table_write_capacity}", "--target-role-name=dynamodb_writer", "--target-s3-bucket-name=${var.target_s3_bucket_name}"]
   working_directory = "/app"
   essential         = true
   environment = [

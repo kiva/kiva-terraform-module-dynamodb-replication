@@ -33,6 +33,7 @@ module "initial_load" {
   stage_type             = var.stage_type
   ecr_repo_account       = var.ecr_repo_account
   target_account         = var.target_account
+  target_s3_bucket_name  = var.target_s3_bucket_name
 }
 
 module "ongoing_replication" {
